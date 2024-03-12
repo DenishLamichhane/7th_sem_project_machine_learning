@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Website Title -->
+    <title>Loan Applicantion Form</title>
+     <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap&subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600&display=swap&subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="static/css/fontawesome-all.css">
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/animate.css">
+    <link rel="stylesheet" href="static/css/magnific-popup.css">
+    <link rel="stylesheet" href="static/css/main.css">    
+    <link rel="stylesheet" href="static/css/responsive.css">
+	
+	<!-- Favicon  -->
+    <link rel="icon" href="{{url_for('static', filename='img/logo.svg')}}">
+</head>
+<body data-spy="scroll" data-target=".fixed-top">
+    
+    <!-- Preloader -->
+	<div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <!-- end of preloader -->
+    
+
+    <header id="home" class="hero-area">    
+        <div class="overlay">
+          <span></span>
+          <span></span>
+        </div>
+        <nav class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar">
+          <div class="container">
+            <a href="/" class="navbar-brand"><img src="static/img/logo.svg" alt=""></a>       
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="lni-menu"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav mr-auto w-100 justify-content-end">
+                <li class="nav-item">
+                  <a class="nav-link page-scroll" href="/">Home</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>  
+              
+      </header>
+      <!-- Header Section End --> 
+    <!-- Breadcrumbs -->
+    <div class="ex-basic-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumbs">
+                        <a href="/">Home</a><i class="fa fa-angle-double-right"></i><span>Predict Loan Application Approval</span>
+                    </div> <!-- end of breadcrumbs -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of ex-basic-1 -->
+    <!-- end of breadcrumbs -->
+
+
+    <!-- Terms Content -->
+    <div id="Predict" class="ex-basic-2">
+		<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp Please Fill in the details to get your chances of Loan Approval.</h4>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="text-container">
+							<!-- Contact Form -->
+								<form id="contactForm" data-toggle="validator" data-focus="false" action="{{ url_for('Loan_Application') }}" method="POST">
+								
+                                    <div class="form-group">
+                                        <select name="genders_type" class="form-control-input" required>
+                                            <option value="" disabled selected>Select Gender</option>
+                                            <option value="MALE">Male</option>
+                                            <option value="FEMALE">Female</option>
+                                        </select>
+                                        <label class="label-control" for="genders_type">Gender</label>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    
+
+                                    <div class="form-group">
+                                        <select name="marital_status" class="form-control-input" required>
+                                            <option value="" disabled selected>Select Marital Status</option>
+                                            <option value="YES">Married</option>
+                                            <option value="NO">Single</option>
+                                        </select>
+                                        <label class="label-control" for="marital_status">Marital status of the applicant</label>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <select name="education_status" class="form-control-input" required>
+                                            <option value="" disabled selected>Select Education Level</option>
+                                            <option value="GRADUATED">Graduated</option>
+                                            <option value="NOT GRADUATED">Not Graduated</option>
+                                        </select>
+                                        <label class="label-control" for="education_status">Education level of the applicant</label>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    
+
+                                    <div class="form-group">
+                                        <select name="dependents" class="form-control-input" required>
+                                            <option value="" disabled selected>Select Number of Dependents</option>
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3+">3+</option>
+                                        </select>
+                                        <label class="label-control" for="dependents">Dependents: No. of people dependent on the applicant (0,1,2,3+)</label>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    
+
+                                    <div class="form-group">
+                                        <select name="self_employment" class="form-control-input" required>
+                                            <option value="" disabled selected>Select Self-employed Status</option>
+                                            <option value="YES">Yes</option>
+                                            <option value="NO">No</option>
+                                        </select>
+                                        <label class="label-control" for="self_employment">Self-employed (Yes, No)</label>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    
+
+                                    <div class="form-group">
+                                        <input name="valuation" type="number" class="form-control-input" required min="0">
+                                        <label class="label-control" for="valuation">Property Valuation (approximate)</label>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    
+								
+							
+                    </div>
+                </div>
+				    <div class="col-lg-6">
+                        <div class="text-container">
+							<!-- Contact Form -->
+							
+
+                            <div class="form-group">
+                                    <input name="applicantIncome" type="number" min="0" max="100000" class="form-control-input" id="applicantIncome" required min="0">
+                                    <label class="label-control" for="applicantIncome">Applicant Income: The amount of income the applicant earns:</label>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <input name="coapplicantIncome" type="number" min="0" max="100000" class="form-control-input" id="coapplicantIncome" required min="0">
+                                    <label class="label-control" for="coapplicantIncome">Co-applicant Income: The amount of income the co-applicant earns:</label>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <input name="loan_amnt" class="form-control-input" type="number" min="500" max="40000" id="loan_amnt" required min="0">
+                                    <label class="label-control" for="loan_amnt">Loan Amount:</label>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <input name="term_d"  class="form-control-input" type="number" min="10" max="365" id="term_d" required min="0">
+                                    <label class="label-control" for="term_d">Loan Amount Term: The  no. of days over which the loan will be paid (in Days)</label>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <select name="credit_history" class="form-control-input" required>
+                                        <option value="" disabled selected>Select Credit History</option>
+                                        <option value="1">1</option>
+                                        <option value="0">0</option>
+                                    </select>
+                                    <label class="label-control" for="credit_history">Credit History of a borrower's responsible repayment of debts (1- has all debts paid, 0- not paid)</label>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+
+                            
+                                <div class="form-group">
+                                    <select name="property_area" class="form-control-input" required>
+                                        <option value="" disabled selected>Select Property Area</option>
+                                        <option value="RURAL">Rural</option>
+                                        <option value="SEMIRURAL">Semi-Rural</option>
+                                        <option value="URBAN">Urban</option>
+                                    </select>
+                                    <label class="label-control" for="property_area">Property Area</label>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                        </div> <!-- end of contact form -->
+					</div> 	<!-- end of text-container -->
+          <label for="model_selection">Select Model:</label>
+          <select id="model_selection" name="model_selection">
+              <option value="randomforest">Random Forest</option>
+              <option value="logistic">Logistic Regression</option>
+          </select>
+                    <button type="submit" class="form-control-submit-button">MAKE PREDICTION</button>
+					</form>
+					</div> <!-- end of container -->
+				<div class="result" align="center">
+						{% if result %}
+						{% for variable, value in original_input.items() %}
+						<br><b>{{ variable }}</b> : {{ value }}
+						{% endfor %}
+						<br>
+						<br> Loan Decision:
+						<p style="font-size:20px">{{ result }}</p>
+						{% endif %}
+                        {% if decline_reasons %}
+        <div class="feedback-box">
+            <h3>Decline Reasons:</h3>
+            <ul>
+                {% for reason in decline_reasons.values() %}
+                    <li>{{ reason }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <style>
+        .feedback-box {
+            border: 1px solid #ccc;
+            background-color: #f8f8f8;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+    
+        .feedback-box h3 {
+            color: #333;
+        }
+    
+        .feedback-box ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    
+        .feedback-box li {
+            margin-bottom: 5px;
+        }
+    </style>
+
+
+                        
+				</div>
+		</div>
+    </div> <!-- end of ex-basic -->
+    <!-- end of terms content -->
+ 	  <!-- Details 2 -->
+	
+  
+ <!-- Footer Section Start -->
+ <footer>
+    <!-- Footer Area Start -->
+    <section id="footer-Content">
+      <div class="container">
+        <!-- Start Row -->
+        <div class="row">
+
+        <!-- Start Col -->
+          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
+            
+            <div class="footer-logo">
+             <img src="static/img/logo.svg" alt="">
+            </div>
+          </div>
+           <!-- End Col -->
+            <!-- Start Col -->
+          <div class="col-lg-2 col-md-6 col-sm-6 col-xs-6 col-mb-12">
+            <div class="widget">
+              <h3 class="block-title">Company</h3>
+              <ul class="menu">
+                <li><a href="#">  - About Us</a></li>
+                <li><a href="#">- Predict</a></li>
+                <li><a href="#">- Visualze</a></li>
+                
+              </ul>
+            </div>
+          </div>
+           <!-- End Col -->
+            <!-- Start Col -->
+          <div class="col-lg-2 col-md-6 col-sm-6 col-xs-6 col-mb-12">
+            <div class="widget">
+              <h3 class="block-title">Tools Used</h3>
+              <ul class="menu">
+                <li><a href="#">  - Python</a></li>
+                <li><a href="#">- Flask</a></li>
+                <li><a href="#">- Seaborn & Matplotlib</a></li>
+                <li><a href="#">- SweetViz</a></li>
+                <li><a href="#">-  ScikitLearn</a></li>
+              </ul>
+            </div>
+          </div>
+           <!-- End Col -->
+            <!-- Start Col -->
+          <div class="col-lg-2 col-md-6 col-sm-6 col-xs-6 col-mb-12">
+            <div class="widget">
+              <h3 class="block-title">Connect</h3>
+              <ul class="menu">
+                <li><a href="https://www.linkedin.com/">  - LinkedIn</a></li>
+                <li><a href="https://www.github.com">- GitHub</a></li>
+                <li><a href="https://www.facebook.com">- Facebook</a></li>
+                <li><a href="https://www.instagram.com">- Instagram</a></li>
+                
+              </ul>
+            </div>
+          </div>
+           <!-- End Col -->
+          
+        </div>
+        <!-- End Row -->
+      </div>
+
+    </section>
+    <!-- Footer area End -->
+    
+  </footer>
+  <!-- Footer Section End --> 
+    <!-- Scripts -->
+    
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/popper.min.js"></script>
+    <script src="static/js/bootstraps.min.js"></script>
+    <script src="static/js/jquery.easing.min.js"></script>
+    <script src="static/js/jquery.magnific-popup.js"></script>
+    <!-- <script src="static/js/morphext.min.js"></script>
+    <script src="static/js/isotope.pkgd.min.js"></script>
+    <script src="static/js/validator.min.js"></script> -->
+    <script src="static/js/scripts.js"></script>
+    <script src="static/js/swiper.min.js"></script>
+    
+
+</body>
+</html>

@@ -1,0 +1,2 @@
+clf_lr_accuracy=0.8686868686868687
+clf_rf_accuracy=0.8585858585858586
